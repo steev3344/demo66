@@ -1,4 +1,5 @@
 require("dotenv").config();
+const port = process.env.PORT || 5000;
 
 const express = require("express");
 const path = require("path");
@@ -34,4 +35,4 @@ app.use("/uploads", express.static("uploads"));
 app.use(express.static(path.join(__dirname, "public")));
 const apiRouter = require("./src/routes/api");
 app.use("/api/v1", apiRouter);
-app.listen(3000, () => console.log("server started"));
+app.listen(port, () => console.log("server started"));
